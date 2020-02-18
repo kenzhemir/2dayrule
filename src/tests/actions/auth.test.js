@@ -1,4 +1,4 @@
-import { login, logout } from "../../actions/auth";
+import { login, logout } from "../../redux/auth";
 
 test("should return login action object", () => {
 	const uid = "12323";

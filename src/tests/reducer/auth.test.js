@@ -1,4 +1,4 @@
-import authReducer from "../../reducers/auth";
+import authReducer from "../../redux/auth";
 
 test("should set uid when login action is dispatched", () => {
 	const action = { type: "LOGIN", uid: "23414" };

@@ -7,6 +7,7 @@ import LoginPage from "../components/LoginPage";
 import NotFoundPage from "../components/NotFoundPage";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
+import AddRulePage from "../components/AddRulePage";
 
 export const history = createBrowserHistory();
 
@@ -16,6 +17,7 @@ const AppRouter = () => (
 			<Switch>
 				<PublicRoute path="/" component={LoginPage} exact={true} />
 				<PrivateRoute path="/dashboard" component={DashboardPage} />
+				<PrivateRoute path="/addrule" component={AddRulePage} />
 				<Route component={NotFoundPage} />
 			</Switch>
 		</div>
