@@ -16,6 +16,7 @@ import LoadingPage from "./components/LoadingPage";
 
 import "./styles/styles.scss";
 import { startSetRules } from "./redux/rules";
+import { syncRules, unsyncRules } from "./redux/rulesSync";
 
 const store = configureStore();
 
@@ -38,14 +39,14 @@ ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 firebase.auth().onAuthStateChanged(user => {
 	if (user) {
 		store.dispatch(login(user.uid));
-		// store.dispatch(startSetRules());
+		store.dispatch(syncRules());
 		renderApp();
 		if (history.location.pathname === "/") {
 			history.push("/dashboard");
 		}
 	} else {
+		store.dispatch(unsyncRules());
 		store.dispatch(logout());
-		store.dispatch(setRules([]));
 		renderApp();
 		history.push("/");
 	}
